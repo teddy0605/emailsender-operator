@@ -1,0 +1,55 @@
+replicaCount: 1
+
+image:
+  repository: email-operator
+  pullPolicy: Never
+  tag: latest
+
+resources:
+  limits:
+    cpu: "1"
+    memory: "512Mi"
+  requests:
+    cpu: "800m"
+    memory: "256Mi"
+
+serviceAccount:
+  create: true
+  automount: true
+  name: email-operator
+
+operator:
+  namespace: default
+  additionalLabels: {}
+
+providers:
+  - name: mailersend
+    apiToken: <<YOUR B64 ENCODED API KEY HERE>>
+    senderEmail: id@mlsender.net
+  - name: alternative-provider
+    apiToken: <<YOUR B64 ENCODED API KEY HERE>>
+    senderEmail: id@alternative-provider.domain
+
+emails:
+  - provider: mailersend
+    to: teddy@gmail.com
+    subject: "Test email from kubernetes operator"
+    body: "This is a test message sent via a kubernetes operator written with kopf running on minikube"
+  - provider: alternative-provider
+    to: destination@unknown.io
+    subject: "This email wont arrive"
+    body: "Nobody will read this"
+
+podSecurityContext:
+  fsGroup: 1000
+  runAsUser: 1000
+  runAsNonRoot: true
+
+securityContext:
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+    - ALL
+
+
+

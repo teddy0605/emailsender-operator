@@ -1,0 +1,10 @@
+{{- range .Values.providers }}
+apiVersion: teddy.io/v1
+kind: EmailSenderConfig
+metadata:
+  name: {{ .name }}-config
+spec:
+  apiTokenSecretRef: {{ .name }}-token-secret
+  senderEmail: {{ .senderEmail }}
+---
+{{- end }}

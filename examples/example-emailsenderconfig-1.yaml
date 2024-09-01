@@ -1,0 +1,7 @@
+apiVersion: teddy.io/v1
+kind: EmailSenderConfig
+metadata:
+  name: mailersend-config
+spec:
+  apiTokenSecretRef: mailersend-token-secret
+  senderEmail: sender@example.com

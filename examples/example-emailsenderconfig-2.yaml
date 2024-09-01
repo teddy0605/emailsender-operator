@@ -1,0 +1,7 @@
+apiVersion: teddy.io/v1
+kind: EmailSenderConfig
+metadata:
+  name: alternative-config
+spec:
+  apiTokenSecretRef: alternative-token-secret
+  senderEmail: alternative@example.com

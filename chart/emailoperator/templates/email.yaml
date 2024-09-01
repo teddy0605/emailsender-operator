@@ -1,0 +1,12 @@
+{{- range .Values.emails }}
+apiVersion: teddy.io/v1
+kind: Email
+metadata:
+  name: {{ .provider }}-test-email
+spec:
+  senderConfigRef: {{ .provider }}-config
+  recipientEmail: {{ .to }}
+  subject: {{ .subject }}
+  body: {{ .body }}
+---
+{{- end }}
