@@ -1,5 +1,5 @@
 apiVersion: v2
-name: emailoperator
+name: emailsender-operator
 description: A helm chart for a kopf operator that sends emails from kubernetes
 type: application
 version: 1.0.0

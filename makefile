@@ -36,18 +36,18 @@ push:
 
 #Package the helm chart
 package:
-	helm package chart/emailoperator
+	helm package chart/emailsender-operator
 
 #Install the helm chart
 install:
-	helm upgrade --install email-operator ./emailoperator-1.0.0.tgz --namespace default --force --debug
+	helm upgrade --install email-operator ./emailsender-operator-1.0.0.tgz --namespace default --force --debug
 
 #Full deploy, build the docker image, package the helm chart and install the helm chart
 full-deploy: build package install
 
 #Render the helm chart
 render:
-	helm template email-operator chart/emailoperator --debug
+	helm template email-operator chart/emailsender-operator --debug
 
 #Remove finalizers from the email resources in order to allow cleanup
 remove-finalizers:

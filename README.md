@@ -14,7 +14,7 @@ The Email Operator for Kubernetes is a custom controller that manages email send
 
 ## Prerequisites
 
-- Kubernetes cluster (v1.16+)
+- Kubernetes cluster
 - Helm 3
 - Docker
 
@@ -24,13 +24,13 @@ The Email Operator for Kubernetes is a custom controller that manages email send
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/email-operator.git
+   git clone https://github.com/teddy0605/emailsender-operator.git
    cd email-operator
    ```
 
 2. Install the Helm chart:
    ```
-   helm install email-operator ./chart/emailoperator
+   helm install email-operator ./chart/emailsender-operator
    ```
 
 ### Manual Installation
